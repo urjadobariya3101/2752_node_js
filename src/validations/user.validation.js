@@ -1,13 +1,27 @@
-const JOi = require('joi');
+const Joi = require("joi");
 
-/** Get user list */
-const getUserList = {
-    query: JOi.object().keys({
-        search: Joi.string().trim().allow(""),
-        sortBy: Joi.string().trim().allow(""),
-        limit: Joi.number().integer().allow(""),
-        page: Joi.number().integer().allow(""),
-    }),
+/** create user */
+const createUser = {
+  body: Joi.object().keys({
+    first_name: Joi.string().required().trim(),
+    last_name: Joi.string().required().trim(),
+    email: Joi.string().required().trim(),
+    password: Joi.string().required().trim(),
+    address: Joi.string().required().trim()
+  }),
 };
 
-module.exports = { getUserList };
+/** GEt user list */
+const getUserList = {
+  query: Joi.object().keys({
+    search: Joi.string().trim().allow(""),
+    sortBy: Joi.string().trim().allow(""),
+    limit: Joi.number().integer().allow(""),
+    page: Joi.number().integer().allow(""),
+  }),
+};
+
+module.exports = {
+  createUser,
+  getUserList
+};
