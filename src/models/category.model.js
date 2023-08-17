@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const catagorySchema = new mongoose.Schema(
+const categorySchema = new mongoose.Schema(
     {
-        catagory_name : {
+        category_name : {
             type : String,
             trim : true
         },
-        catagory_desc : {
+        category_desc : {
             type : String,
             trim : true
         },
@@ -17,9 +17,9 @@ const catagorySchema = new mongoose.Schema(
     },
     {
         trimstamp : true,
-        versionKey : true,
+        versionKey : false,
     }
 );
 
-const catagory = mongoose.model('catagory',catagorySchema)
-module.exports = catagory;
+const Category = mongoose.model('category',categorySchema)
+module.exports = Category;
